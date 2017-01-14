@@ -33,8 +33,10 @@
         // This function is called when someone finishes with the Login
         // Button.  See the onlogin handler attached to it in the sample
         // code below.
-        function checkLoginState() {
-            FB.getLoginStatus(function (response) {
+        //鼓勵使用者登入/授權
+        function loginFB() {
+
+            FB.login(function (response) {
                 statusChangeCallback(response);
             });
         }
@@ -99,7 +101,7 @@
 -->
 
     <div id="entry" style="display:none;">
-        <button>Login</button>
+        <button onclick="loginFB();">Login</button>
     </div>
 
     <div id="main" style="display:none;">Hello</div>
