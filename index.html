@@ -39,7 +39,7 @@
 
             FB.login(function (response) {
                 statusChangeCallback(response);
-            });
+            },{scope:"email"});
         }
 
         //2. SDK載入完成後，立刻呼叫 window.fbAsyncInit
@@ -88,7 +88,8 @@
         function callAPI() {
             FB.api('/me?fields=id,name,gender', function (response) {
                 var main = document.getElementById("main");
-                main.innerHTML ="Hello" + response.name + "(" + response.gender + ")";
+                main.innerHTML =
+                    "Hello" + response.name + "(" + response.gender + ")";
             });
         }
     </script>
