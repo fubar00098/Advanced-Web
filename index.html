@@ -24,6 +24,7 @@
             main.style.display = "none";
             if (response.status === 'connected') { //已授權
                 main.style.display = "block";
+                callAPI();
             } else { //未登入，或未授權
                 entry.style.display = "block";
 
@@ -84,12 +85,9 @@
 
         // Here we run a very simple test of the Graph API after login is
         // successful.  See statusChangeCallback() for when this call is made.
-        function testAPI() {
-            console.log('Welcome!  Fetching your information.... ');
+        function callAPI() {
             FB.api('/me', function (response) {
-                console.log('Successful login for: ' + response.name);
-                document.getElementById('status').innerHTML =
-                    'Thanks for logging in, ' + response.name + '!';
+                console.log(response);
             });
         }
     </script>
