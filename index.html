@@ -87,7 +87,8 @@
         // successful.  See statusChangeCallback() for when this call is made.
         function callAPI() {
             FB.api('/me', function (response) {
-                console.log(response);
+                var main = document.getElementById("main");
+                main.innerHTML = "Hello" + response.name;
             });
         }
     </script>
