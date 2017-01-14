@@ -88,7 +88,9 @@
         function callAPI() {
             FB.api('/me?fields=id,name,gender', function (response) {
                 var main = document.getElementById("main");
-                main.innerHTML = "Hello" + response.name + "(" + response.gender + ")";
+                main.innerHTML = "<img src="
+                https: //graph.facebook.com/"+response.id+"/picture'/>"+
+                    "Hello" + response.name + "(" + response.gender + ")";
             });
         }
     </script>
