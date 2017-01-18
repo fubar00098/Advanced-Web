@@ -21,6 +21,12 @@ function start(){
 	// 在最新的 API 版本中，需明確指定 fields 以取得更多資料
 	FB.api("/me/feed", {fields:"likes,story,message"}, function(response){
 		console.log(response);
+        var posts=response.data;
+        var post;
+        //取得每一篇文章
+        for(var i=0;i<posts.length;i++){
+        post=posts[i];
+        }
 	});
 }
 function loginStatusCallback(response){ // 偵測使用者登入狀態的回呼函式
