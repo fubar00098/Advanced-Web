@@ -45,8 +45,12 @@
                 // 排序資料
                 var a=[6, 2, 10, 1, 120, 5, 66];
                 a.sort(function(e1, e2){
-                console.log(e1+","+e2);
+                    return e1-e2;
+                //return 0; // 等於
+                    //return 1; // e2放前面
+                    //return -1; // e1放前面
                 });
+                console.log(a);
                 /*
                 for(var i=0;i<a.length;i++){
                 for(var j=i+1;j<a.length;j++){
