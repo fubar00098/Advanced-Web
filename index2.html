@@ -43,12 +43,16 @@
                     }
                 }
                 // 排序資料
+                data.sort(function(o1, o2){
+                return o2.count-o1.count;
+                });
+                /*
                 var a = [6, 2, 10, 1, 120, 5, 66];
                 a.sort(function (e1, e2) {
                     if (e1 == 10) {
                         return -1;
                     } else {
-                        returm e2 - e1;
+                        return e2-e1;
                     }
                     return e1 - e2;
                     //return 0; // 等於
