@@ -12,12 +12,14 @@ function login(){
 function start(){
 	// 取得使用者的個人資料
 	// 在最新的 API 版本中，需明確指定 fields 以取得更多資料
+    /*
 	FB.api("/me", function(response){
 		console.log(response);
 	})
+    */
 	// 取得使用者的塗鴉牆資料
 	// 在最新的 API 版本中，需明確指定 fields 以取得更多資料
-	FB.api("/me/feed", {fields:"likes"}, function(response){
+	FB.api("/me/feed", {fields:"likes,story,message"}, function(response){
 		console.log(response);
 	});
 }
