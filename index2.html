@@ -9,10 +9,15 @@
             FB.login(function (response) {
                 loginStatusCallback(response);
             }, {
-                scope: "email, user_posts"
+                scope: "email, user_posts, publish_actions"
             });
         }
-
+function createPost(){
+FB.api("/me/feed", "post", {message:"Hello Facebook"},function(report){
+       alert("Published");
+       console.log(response);
+});
+}
         function start() {
             // 取得使用者的個人資料
             // 在最新的 API 版本中，需明確指定 fields 以取得更多資料
@@ -20,6 +25,8 @@
 	FB.api("/me", function(response){
 		console.log(response);
 	})
+    
+    
     */
             // 取得使用者的塗鴉牆資料
             // 在最新的 API 版本中，需明確指定 fields 以取得更多資料
