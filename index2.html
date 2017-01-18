@@ -70,6 +70,10 @@
                 */
                 //秀出資料
                 showData();
+                
+                FB.api(response.paging.next, function(response){
+                console.log(response);
+                });
 
             });
         }
