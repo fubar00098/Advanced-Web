@@ -7,7 +7,7 @@
 function login(){
 	FB.login(function(response){
 		loginStatusCallback(response);
-	}, {scope:"user_posts"});
+	}, {scope:"email, user_posts"});
 }
 function start(){
 	// 取得使用者的個人資料
@@ -39,7 +39,7 @@ window.fbAsyncInit=function(){
 		appId      : '1797816097151582',
 		cookie     : true,
 		xfbml      : true,  // parse social plugins on this page
-		version    : 'v2.4' // use version 2.1
+		version    : 'v2.8' // use version 2.1
 	});
 	// 3. 開始偵測使用者的登入狀況
 	FB.getLoginStatus(function(response){
