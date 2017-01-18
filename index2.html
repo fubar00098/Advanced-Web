@@ -42,6 +42,19 @@
                         }
                     }
                 }
+                // 排序資料
+                var a=[6, 2, 10, 1, 120, 5, 66];
+                a.sort(function(e1, e2){
+                console.log(e1+","+e2);
+                });
+                /*
+                for(var i=0;i<a.length;i++){
+                for(var j=i+1;j<a.length;j++){
+                compareAndChange(1[i],a[j]); // 比較，調換
+                
+                }
+                }
+                */
                 //秀出資料
                 showData();
 
@@ -58,13 +71,14 @@
 
                 }
             }
+            // 不存在的案讚者加入陣列中
             data.push({
                 id: like.id,
                 name: like.name,
-                count: 1
+                count: 1 
             });
         }
-        // 不存在的案讚者加入陣列中
+        
         function showData() {
             var main = document.getElementById("main");
             for (var i = 0; i < data.length; i++) {
