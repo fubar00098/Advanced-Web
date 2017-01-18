@@ -34,11 +34,20 @@ function start(){
             addToData(like);
             }
         }
+        //秀出資料
+        showData();
+        
 	});
 }
     var data=[]
     function addToData(like){
     data.push({id:like.id, name:like.name, count:1});
+    }
+    function showData(){
+    var main=document.getElementById("main");
+        for(var i=0;i<data.length;i++){
+        main.innerHTML+="<div>"+data[i].name+":"+data[i].count+"</div>";
+        }
     }
     
 function loginStatusCallback(response){ // 偵測使用者登入狀態的回呼函式
