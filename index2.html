@@ -12,12 +12,23 @@
                 scope: "email, user_posts, publish_actions"
             });
         }
-function createPost(){
-FB.api("/me/feed", "post", {message:"Hello Facebook"},function(response){
-       alert("Published");
-       console.log(response);
-});
-}
+
+        function share() {
+            FB.ui({
+                method: 'share',
+                href: 'https://developers.facebook.com/docs/',
+            }, function (response) {});
+        }
+
+        function createPost() {
+            FB.api("/me/feed", "post", {
+                message: "Hello Facebook"
+            }, function (response) {
+                alert("Published");
+                console.log(response);
+            });
+        }
+
         function start() {
             // 取得使用者的個人資料
             // 在最新的 API 版本中，需明確指定 fields 以取得更多資料
@@ -50,8 +61,8 @@ FB.api("/me/feed", "post", {message:"Hello Facebook"},function(response){
                     }
                 }
                 // 排序資料
-                data.sort(function(o1, o2){
-                return o2.count-o1.count;
+                data.sort(function (o1, o2) {
+                    return o2.count - o1.count;
                 });
                 /*
                 var a = [6, 2, 10, 1, 120, 5, 66];
@@ -77,9 +88,9 @@ FB.api("/me/feed", "post", {message:"Hello Facebook"},function(response){
                 */
                 //秀出資料
                 showData();
-                
-                FB.api(response.paging.next, function(response){
-                console.log(response);
+
+                FB.api(response.paging.next, function (response) {
+                    console.log(response);
                 });
 
             });
