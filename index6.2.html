@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 流星錘</title>
+    <script>
+    
+        var ctx;
+        window.onload=function(){
+        ctx=document.getElementById("cvs").getContext("2d");
+        
+        ctx.canvas.addEventListener("mousedown", function(){
+             ctx.canvas.addEventListener("mousemove", clickCvs);
+        });
+         ctx.canvas.addEventListener("mouseup", function(){
+             ctx.canvas.removeEventListener("mousemove", clickCvs);
+        });    
+            
+            
+            
+            // 主程式永遠用原始的座標系統思考
+        drawStar(100, 100);
+        drawStar(600, 300);
+
+        };
+        
+        function clickCvs(e){
+            var x=e.clientX-ctx.canvas.offsetLeft;
+            var y=e.clientY-ctx.canvas.offsetTop;
+            var size=Math.random()*40+10; //10~50
+            drawStar(x,y, size);
+        }
+        
+        function drawStar(x, y, size){
+            ctx.save(); //儲存當前的設定
+            // 移動座標軸原點到 (x, y)的位置
+            ctx.translate(x, y);
+            ctx.fillRect(-size/2, -size/2, size, size);
+            // 以(x,y)為圓心，旋轉45度
+            ctx.rotate(Math.PI/4);
+            ctx.fillRect(-size/2, -size/2, size, size);
+            //以下將座標軸恢復原狀
+            ctx.restore();
+            //ctx.rotate(-Math.PI/4);
+            //ctx.translate(-x, -y);
+
+            
+        }
+        
+    </script>                                                                 
+</head>
+<body>
+
+<h3>Canvas Draw</h3>
+<canvas id="cvs" width="800" height="600" style="border:1px solid black"></cancas>
+
+</body>
+</html>

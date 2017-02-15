@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    
+    
+    <script>
+        var car; //用來存放購物車的資料
+        window.onload=function(){
+            cart=window.localStorage.getItem("cart"); //可能是null 或字串資料
+            if(cart==null){
+                cart=[];
+            }else{
+                cart=JSON.parse(cart);
+            }
+        };
+        function addCart(id, name, price){
+            var product={"id":id, "name":name, "price":price};
+            cart.push(product);
+            // save to localStorage
+            window.localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Success");
+        }
+    
+    </script>
+    
+</head>
+<body>
+
+   <h3>Bunny</h3>
+    <div>
+        Food 100<button onclick="addCart(1, 'Food', 100);">Add</button>
+    </div>
+    
+    <div>
+        Toy 500<button onclick="addCart(2, 'Toy', 500);">Add</button>
+    </div>
+    
+    <a href="cart.html">Go to Cart</a>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation</title>
+    
+    <script>
+        
+        window.onload=function(){
+            window.navigator.geolocation.getCurrentPosition(function(response){
+                console.log(response);
+                
+            },function(response){
+                console.log(response);
+            
+            });
+            
+        };
+        
+    
+    </script>
+    
+</head>
+<body>
+
+
+
+</body>
+</html>

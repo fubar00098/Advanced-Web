@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    
+    
+    <script>
+        var car;  //用來存放購物車的資料
+        window.onload=function(){
+            // 從localStorage 還原資料
+            
+            cart=window.localStorage.getItem("cart"); //可能是null 或字串資料
+            if(cart==null){
+                cart=[];
+            }else{
+                cart=JSON.parse(cart);
+            }
+            refreshList();
+            
+        };
+            function refreshList(){
+                var list=document.getElementById("list");
+                list.innerHTML=""; //清空內容
+                var product;
+                var sum=0;
+                for(var i=0;i<cart.length;i++){
+                    product=cart[i];
+                    list.innerHTML+="<div>"+product.name+"/"+product.price+
+                        "<button onclick='deleteCart("+i+");'>Del</button></div>";
+                    sum=sum+product.price;
+                }
+                list.innerHTML+="<div>Total: "+sum+"</div>";
+            }
+            
+                function deleteCart(index){
+                    cart.splice(index, 1);
+                    window.localStorage.setItem("cart", JSON.stringify(cart));
+                    refreshList();
+                    alert("successful");
+                }
+    
+    </script>
+    
+</head>
+<body>
+
+   <h3>Bunny Cart</h3>
+   <div id="list"></div>
+
+</body>
+</html>

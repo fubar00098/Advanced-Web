@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Web Storage</title>
+    
+    <script>
+        
+        function saveData(){
+            var user={
+                id:2,
+                name:"PengPeng",
+                level:3
+            };
+        var userStr=JSON.stringify(user); //字串化
+            window.localStorage.setItem("name", userStr);
+        }
+        function getData(){
+        var userStr = window.localStorage.getItem("name");
+            var user = JSON.parse(userStr); // 重新解讀成物件
+            alert(user.id+"/"+user.name);
+        }
+    </script>
+    
+</head>
+<body>
+
+    <button onclick="saveData();">Save</button>
+    <button onclick="getData();">Get</button>
+</body>
+</html>

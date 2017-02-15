@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>立方體畫面</title>
+    <style type="text/css">
+        .top {
+            width: 500px;
+            height: 100px;
+            background-color: #dddddd;
+            transform: translate(50px, 0px) skew(-45deg, 0deg);
+        }
+        
+        .center {
+            width: 500px;
+            height: 500px;
+            background-color: #aaaaaa;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .right {
+            width: 100px;
+            height: 500px;
+            background-color: #777777;
+            display: inline-block;
+            vertical-align: top;
+            transform: translate(0px, -50px) skew(0deg, -45deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="square">
+        <div class="top"></div>
+        <div class="center"></div><div class="right"></div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 向量繪圖</title>
+    <script>
+        var cvs;
+        window.onload = function () {
+            cvs = document.getElementById("cvs");
+            //一個canvas對應一個context物件
+            ctx = cvs.getContext("2d");
+/*
+            ctx.fillStyle = "red";
+            ctx.fillRect(10, 10, 100, 200);
+
+            ctx.fillStyle = "#ffba00";
+            ctx.font = "125px arial";
+            ctx.fillText("Hello", 200, 100);
+            
+         
+            ctx.strokeStyle = "green";
+            ctx.strokeRect(200, 150, 50, 50);
+            
+            var gra=ctx.createLinearGradient(100, 400, 600, 100);
+            gra.addColorStop(0,"red");
+            gra.addColorStop(0.5,"#00ffc4");
+            gra.addColorStop(1,"#4b0560");
+            ctx.fillStyle=gra;
+            ctx.fillRect(0, 0, cvs.width, cvs.height);
+            
+            */
+            
+            //路徑工具
+            ctx.beginPath();
+            ctx.moveTo(50, 50);
+            ctx.lineTo(200, 100);
+            ctx.lineTo(100, 200);
+            ctx.closePath();
+            ctx.fill(); // ctx.stroke;
+            
+            ctx.beginPath();
+            ctx.arc(500, 500, 100, 0, 2*Math.PI);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(50, 500);
+            ctx.quadraticCurveTo(200, 300, 400, 500);
+            ctx.stroke();
+            
+            /*
+            var img = new Image();
+            img.src = "lion.jpg";
+            img.onload = function () {
+                ctx.globalAlpha=0.2;
+                ctx.drawImage(this ,0,0, cvs.width, cvs.height);
+            };
+            */
+            
+            
+
+        };
+    </script>
+</head>
+
+<body>
+
+    <canvas id="cvs" width="800" height="600" style="border:1px solid black"></canvas>
+
+</body>
+
+</html>
