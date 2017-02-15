@@ -6,8 +6,22 @@
     
     <script>
         
-        window.onload=function(){
+       function init(){
             window.navigator.geolocation.getCurrentPosition(function(response){
+                var map=new google.maps.Map(document.getElementById("map"),{
+                    zoom:8,
+                    center:{lat:response.coords.latitude, lng:response.coords.longitude}
+                });
+                // add marker
+                
+                new google.maps.Marker(map, {
+                    position:{
+                        lat:response.coords.latitude,
+                        lng:response.coords.longitude
+                    }
+                });
+                
+                
                 console.log(response);
                 
             },function(response){
@@ -19,11 +33,14 @@
         
     
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=init"
+        async defer></script>
     
 </head>
 <body>
 
-
+    <div id="map" style="width:600px; height:400px;"></div>
+    
 
 </body>
 </html>
